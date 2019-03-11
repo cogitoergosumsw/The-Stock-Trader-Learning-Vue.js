@@ -55,9 +55,10 @@
             }
         },
         methods: {
-            ...mapActions([
-                'randomizeStocks'
-            ]),
+            ...mapActions({
+                randomizeStocks: 'randomizeStocks',
+                fetchData: 'loadData'
+            }),
             endDay() {
                 this.randomizeStocks();
             },
@@ -70,7 +71,7 @@
                 this.$http.put('wherever is your database URL', data);
             },
             loadData() {
-
+                this.fetchData();
             }
         }
     }
